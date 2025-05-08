@@ -1,0 +1,111 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: rgb(0, 0, 0);
+  --purple: rgb(92, 45, 213);
+  --lightpurple: rgb(121, 69, 255);
+  --red: rgb(253, 102, 135);
+  --yellow: rgb(255, 206, 103);
+  --white: rgb(255, 255, 255);
+  --mainFont: "Space Grotesk", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.justify-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tablet-mobile {
+  display: none;
+}
+
+.tablet {
+  display: none;
+}
+
+.mobile {
+  display: none;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 1050px) {
+  .desktop {
+    display: none;
+  }
+
+  .tablet-mobile {
+    display: block;
+  }
+
+  .tablet {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .desktop-tablet {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .tablet {
+    display: none;
+  }
+}

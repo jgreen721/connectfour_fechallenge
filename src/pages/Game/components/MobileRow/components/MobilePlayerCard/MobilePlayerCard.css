@@ -1,0 +1,32 @@
+.mobile-player-card {
+  background: var(--white);
+  padding: 2rem;
+  border: 5px solid var(--black);
+  border-radius: 1rem;
+  flex: 1;
+}
+
+.mobile-player-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.absolute-mobile-icon-1 {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.absolute-mobile-icon-2 {
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+}
+
+@media screen and (max-width: 650px) {
+  .mobile-player-card-content {
+    flex-direction: column;
+  }
+}

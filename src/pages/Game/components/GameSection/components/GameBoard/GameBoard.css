@@ -1,0 +1,69 @@
+.gameboard-parent {
+  border: 5px solid var(--black);
+  border-radius: 2rem;
+  box-shadow: 0px 10px 0px var(--black);
+  overflow: hidden;
+}
+
+.gameboard {
+  border: 10px solid var(--white);
+  border-bottom: 30px solid var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.game-row {
+  display: flex;
+  /* gap: 0.5rem; */
+}
+
+.game-cel {
+  width: 8rem;
+  height: 8rem;
+  border: 5px solid var(--white);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-cel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 12.5px solid var(--white);
+  border-radius: 50%;
+  transform: scale(1.45);
+}
+
+.game-cel-shadow {
+  content: "";
+  position: absolute;
+  border: 15px solid black;
+  inset: 0;
+  /* left: 0.6rem; */
+  transform: scaleY(1.3) scaleX(1.5);
+  filter: blur(2px);
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 850px) {
+  .game-cel {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .game-cel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 7.5px solid var(--white);
+    border-radius: 50%;
+    transform: scale(1.45);
+  }
+
+  .game-cel-shadow {
+    border: 8.5px solid black;
+  }
+}

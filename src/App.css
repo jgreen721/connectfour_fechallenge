@@ -1,0 +1,33 @@
+.app {
+  /* min-height: 100vh; */
+  font-family: var(--mainFont);
+}
+
+.view-screen {
+  position: relative;
+  /* min-height: 100vh; */
+}
+
+.screen-content {
+  /* border: 2px solid yellow; */
+  max-width: 144rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-screen-content {
+  justify-content: center;
+}
+
+.bg-red {
+  background: var(--red);
+}
+
+.bg-yellow {
+  background: var(--yellow);
+}

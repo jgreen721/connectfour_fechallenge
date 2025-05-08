@@ -1,0 +1,24 @@
+.gamerow-section {
+  position: relative;
+  z-index: 5;
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  transform: scaleX(0);
+  animation: accordion-scale 1s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+}
+
+.gameboard-column {
+  /* border: 2px solid yellow; */
+  position: relative;
+}
+
+@keyframes accordion-scale {
+  100% {
+    transform: scaleX(1);
+  }
+}

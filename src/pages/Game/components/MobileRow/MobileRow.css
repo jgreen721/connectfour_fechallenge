@@ -1,0 +1,9 @@
+.mobile-playercard-row {
+  display: flex;
+  gap: 3rem;
+  width: clamp(40%, 65rem, 90%);
+  /* border: 2px solid red; */
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}

@@ -1,0 +1,89 @@
+.action-row {
+  display: flex;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+
+.action-cel {
+  width: 8rem;
+  height: 8rem;
+  border-right: 2px solid black;
+  position: relative;
+  cursor: pointer;
+  border: 5px solid transparent;
+  border-right: 5px solid var(--black);
+}
+
+.action-cel:last-child {
+  border-right: 0;
+}
+
+.action-cel-btn {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.boardchip {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 5px solid var(--black);
+  position: absolute;
+}
+
+.red-chip {
+  background: var(--red);
+}
+
+.yellow-chip {
+  background: var(--yellow);
+}
+
+.winning-chip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.winning-chip::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 5px solid var(--white);
+  box-shadow: 2px 2px 2px var(--lightpurple), 2px 2px 5px var(--purple) inset;
+  border-radius: 50%;
+  transform: scale(0) translateY(-2.25rem);
+  animation: scalering 1s 1s forwards;
+}
+
+@keyframes scalering {
+  100% {
+    transform: scale(1) translateY(1rem);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .action-cel,
+  .boardchip {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .winning-chip::after {
+    height: 17.5px;
+    width: 17.5px;
+    border: 2.5px solid var(--white);
+  }
+
+  @keyframes scalering {
+    100% {
+      transform: scale(1) translateY(-0.5rem);
+    }
+  }
+}
