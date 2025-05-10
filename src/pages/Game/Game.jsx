@@ -12,14 +12,18 @@ const Game = () => {
   const [playerOneScore,setPlayerOneScore] = useState(0)
   const [playerTwoScore,setPlayerTwoScore] = useState(0)
   const [markerOffset,setMarkerOffset] = useState(0);
-  const navigate = useNavigate();
-  const OFFSET_DISTANCE = innerWidth > 850 ? 80 : 52.5;
   const [canMakeNextMove,setCanMakeNextMove] = useState(true)
   const [winningCoords,setWinningCoords] = useState(null);
-  const [moveCounter,setMoveCounter] = useState(0)
-  const [keyDown,setKeyDown] = useState(false);
-  // const [timer,setTimer] = useState(20)
+  const navigate = useNavigate();
+  const OFFSET_DISTANCE = innerWidth > 850 ? 80 : 52.5;
 
+
+
+  useEffect(()=>{
+  
+    ()=> localStorage.clear("startplayer")
+  })
+  
 
   const handleChooseColumn=(colNum)=>{
     // console.log("ColNum",colNum);
@@ -116,7 +120,6 @@ const Game = () => {
       }
     }
     togglePlayer(2000);
-    setMoveCounter((moveCounter)=>++moveCounter)
   }
 
 
@@ -147,10 +150,13 @@ const handleReturnToMenu=()=>{
     console.log("handle restart fired!")
     setIsPaused(false);
     setGameGrid(gamegrid);
-    setPlayersTurn({color:"red",val:1});
-    setMoveCounter(0);
+    let lastPlayerToStart = localStorage.getItem("startplayer") || "red"
+    console.log(lastPlayerToStart);
+    setPlayersTurn(playersTurn =>playersTurn = lastPlayerToStart == "red" ? {color:"yellow",val:2} : {color:"red",val:1});
+    localStorage.setItem("startplayer",lastPlayerToStart == "red" ? "yellow" : "red");
     setMarkerOffset(0);
     setWinningCoords(null);
+    setCanMakeNextMove(true);
   }
 
   const handleQuit = ()=>{
@@ -181,7 +187,6 @@ const handlePause=()=>{
         <Pause isPaused={isPaused} handlePause={handlePause} handleRestart={handleRestart} handleQuit={handleQuit}/>
         <GameHeader handleReturnToMenu={handleReturnToMenu} handleRestart={handleRestart}/>
         <MobileRow playerOneScore={playerOneScore} playerTwoScore={playerTwoScore}/>
-        {/* <h3>{moveCounter}</h3> */}
         <GameSection 
         gameGrid={gameGrid} 
         winningCoords={winningCoords} 
@@ -192,10 +197,7 @@ const handlePause=()=>{
         playerTwoScore={playerTwoScore} 
         markerOffset={markerOffset} 
         canMakeNextMove={canMakeNextMove} 
-        moveCounter={moveCounter} 
         handleRestart={handleRestart}
-        // timer={timer}
-        // setTimer={setTimer}
         isPaused={isPaused}/>
         <BG_Stripe winningCoords={winningCoords} playersTurn={playersTurn}/>
       </div>

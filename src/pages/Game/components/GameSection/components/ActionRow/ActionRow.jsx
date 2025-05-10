@@ -22,7 +22,7 @@ const BoardChip = ({chip,winningCoords})=>{
 }
 
 
-const ActionCel = ({actionCel,colNum,handleChooseColumn,canMakeNextMove,winningCoords,moveCounter})=>{
+const ActionCel = ({actionCel,colNum,handleChooseColumn,canMakeNextMove,winningCoords})=>{
   const [chips,setChips] = useState([]);
   const btnRef = useRef();
   
@@ -38,19 +38,17 @@ const ActionCel = ({actionCel,colNum,handleChooseColumn,canMakeNextMove,winningC
 
   useEffect(()=>{
 if(winningCoords){
-    // setChips((chips)=>chips.map(c=>))
-   
-    // setChips((chips)=>chips.map(c=>winningCoords.indexOf(c.chipIdx) != -1 ? {...c,isWinner:true} : c));
     handleCheckChipsAsWinners()
+}else{
+  setChips([]);
 }
   },[winningCoords]);
 
-  useEffect(()=>{
-    if(moveCounter == 0){
-      // console.log("clean up chips",moveCounter);
-      setChips([]);
-    }
-  },[moveCounter])
+  // useEffect(()=>{
+  //   if(moveCounter == 0){
+  //     setChips([]);
+  //   }
+  // },[moveCounter])
 
 
   const handleCheckChipsAsWinners = async()=>{
@@ -80,12 +78,12 @@ if(winningCoords){
   )
 }
 
-const ActionRow = ({actionRow,handleChooseColumn,canMakeNextMove,winningCoords,moveCounter}) => {
+const ActionRow = ({actionRow,handleChooseColumn,winningCoords,canMakeNextMove}) => {
   // console.log(actionRow);
   return (
     <div className="action-row">
       {actionRow.map((actionCel,idx)=>(
-        <ActionCel key={idx} actionCel={actionCel} colNum={idx} handleChooseColumn={handleChooseColumn} canMakeNextMove={canMakeNextMove} winningCoords={winningCoords} moveCounter={moveCounter}/>
+        <ActionCel key={idx} actionCel={actionCel} colNum={idx} handleChooseColumn={handleChooseColumn} canMakeNextMove={canMakeNextMove} winningCoords={winningCoords}/>
       ))}
     </div>
   )

@@ -10,7 +10,7 @@ const TitleCard = () => {
   const playBtnRef = useRef();
   const rulesBtnRef = useRef();
 
-  console.log("title card rendered---")
+  // console.log("title card rendered---")
 
   const handleNavigate =(dest)=>{
     navigate(dest)
